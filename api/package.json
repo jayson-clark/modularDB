@@ -1,0 +1,16 @@
+{
+    "name": "modular-db",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "main": "src/app.js",
+    "scripts": {
+        "start": "node src/app.js"
+    },
+    "keywords": [],
+    "author": "Jayson Clark",
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "pg": "^8.11.5"
+    }
+}
