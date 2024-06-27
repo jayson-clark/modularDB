@@ -1,13 +1,29 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Header Component
+ * WidgetGrid Component
  * 
  * This component fetches the layout from the server and renders widgets dynamically
- * based on the layout configuration.
+ * based on the layout configuration. The API URL is configurable and stored in
+ * local storage for persistence.
  */
 const WidgetGrid = () => {
     const [layout, setLayout] = useState([]);
+    const [API_URL, setAPIUrl] = useState(localStorage.getItem('api_url'));
+
+    /**
+     * Prompts the user to enter the backend API URL and stores it in local storage.
+     * 
+     * If a URL is provided, it sets the API_URL state with the new URL.
+     */
+    const apiPrompt = () => {
+        const url = prompt("Enter backend URL:", "http://localhost:3000");
+        if (url) localStorage.setItem('api_url', url);
+        setAPIUrl(url);
+    };
+
+    // Prompt for API URL if not already set
+    if (!API_URL) apiPrompt();
 
     /**
      * Fetch the layout configuration from the server when the component mounts.
@@ -18,33 +34,36 @@ const WidgetGrid = () => {
     useEffect(() => {
         const fetchLayout = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/layoutManager/loadLayout');
+                const response = await fetch(`${API_URL}/api/layoutManager/loadLayout`);
                 const layoutData = await response.json();
                 setLayout(layoutData);
             } catch (err) {
                 console.error('Error loading layout:', err);
+                apiPrompt();
             }
         };
 
         fetchLayout();
-    }, []);
+    }, [API_URL]);
 
     return <section>
-        {layout.map((widget, index) => <div
-            className="grid-item"
-            style={{
-                gridColumn: `${widget.x} / span ${widget.width}`,
-                gridRow: `${widget.y} / span ${widget.height}`
-            }}
-        >
-            <iframe
-                src={`http://localhost:3000/widgets/${widget.plugin_id}/${widget.widget_id}`}
-                sandbox="allow-scripts allow-forms allow-modals allow-same-origin"
-            ></iframe>
-        </div>
-        )}
+        {layout.map((widget, index) => (
+            <div
+                key={index}
+                className="grid-item"
+                style={{
+                    gridColumn: `${widget.x} / span ${widget.width}`,
+                    gridRow: `${widget.y} / span ${widget.height}`
+                }}
+            >
+                <iframe
+                    src={`${API_URL}/widgets/${widget.plugin_id}/${widget.widget_id}`}
+                    sandbox="allow-scripts allow-forms allow-modals allow-same-origin"
+                    title={`Widget ${widget.plugin_id} ${widget.widget_id}`}
+                ></iframe>
+            </div>
+        ))}
     </section>;
-
 };
 
 export default WidgetGrid;
