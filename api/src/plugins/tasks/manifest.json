@@ -1,4 +1,5 @@
 {
     "name": "Tasks Plugin",
-    "main": "plugin.js"
+    "main": "plugin.js",
+    "widget_directory": "widgets"
 }

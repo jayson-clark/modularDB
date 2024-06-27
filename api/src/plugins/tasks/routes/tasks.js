@@ -36,6 +36,7 @@ export default (plugin) => {
             );
             res.json(result.rows[0]);
         } catch (err) {
+            console.log(err.message)
             res.status(500).json({ error: err.message });
         }
     });

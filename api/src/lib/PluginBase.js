@@ -22,6 +22,9 @@ class Plugin {
 
         this.router = express.Router();
         this.app.use(`/api/${this.id}`, this.router);
+
+        if (this.manifest.widget_directory)
+            this.app.use(`/widgets/${this.id}`, express.static(join(this.rootPath, this.manifest.widget_directory)));
     }
 
     /**

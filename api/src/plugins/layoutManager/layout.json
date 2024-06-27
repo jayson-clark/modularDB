@@ -1,0 +1,10 @@
+[
+    {
+        "plugin_id": "tasks",
+        "widget_id": "listTasks",
+        "x": 2,
+        "y": 2,
+        "width": 4,
+        "height": 4
+    }
+]
