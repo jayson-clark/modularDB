@@ -9,6 +9,11 @@
 
 <body>
     <ul id="tasks"></ul>
+    <script>
+        // Get the token from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+    </script>
     <script src="main.js"></script>
 </body>
 

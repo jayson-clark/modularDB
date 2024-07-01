@@ -2,7 +2,8 @@ function toggleTaskCompletion(taskId, title, description, completed) {
     fetch(`/api/tasks/tasks/${taskId}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ title, description, completed })
     })
@@ -21,7 +22,11 @@ function toggleTaskCompletion(taskId, title, description, completed) {
 window.onload = () => {
     const tasksList = document.getElementById('tasks');
 
-    fetch('/api/tasks/tasks')
+    fetch('/api/tasks/tasks', {
+        headers: {
+            'authorization': `Bearer ${token}`
+        }
+    })
         .then(response => response.json())
         .then(tasks => {
 
