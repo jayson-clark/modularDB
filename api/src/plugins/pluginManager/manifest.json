@@ -1,0 +1,4 @@
+{
+    "name": "PluginManager",
+    "main": "plugin.js"
+}
