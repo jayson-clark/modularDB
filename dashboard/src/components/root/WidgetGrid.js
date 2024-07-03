@@ -103,7 +103,7 @@ const WidgetGrid = () => {
             >
                 <iframe
                     src={`${API_URL}/widgets/${widget.plugin_id}/${widget.widget_id}?token=${TOKEN}`}
-                    sandbox="allow-scripts allow-forms allow-modals allow-same-origin"
+                    sandbox="allow-scripts allow-forms allow-modals allow-same-origin allow-popups"
                 ></iframe>
             </div>
         ))}

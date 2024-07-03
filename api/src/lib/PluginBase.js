@@ -25,6 +25,9 @@ class Plugin {
 
         if (this.manifest.widget_directory)
             this.app.use(`/widgets/${this.id}`, express.static(join(this.rootPath, this.manifest.widget_directory)));
+
+        if (this.manifest.page_directory)
+            this.app.use(`/pages/${this.id}`, express.static(join(this.rootPath, this.manifest.page_directory)));
     }
 
     /**
