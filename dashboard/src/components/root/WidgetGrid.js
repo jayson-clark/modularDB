@@ -25,6 +25,8 @@ const WidgetGrid = () => {
         }
     };
 
+    if (!API_URL) apiPrompt();
+
     /**
      * Prompts the user for a password and requests an authentication token.
      */
