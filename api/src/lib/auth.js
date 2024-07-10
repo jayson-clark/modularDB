@@ -14,7 +14,8 @@ export default (app) => {
 
             if (req.originalUrl === '/token') return next();
 
-            if (req.originalUrl.split('/')[1] === 'widgets') return next();
+
+            if (req.originalUrl.startsWith('/widgets') || req.originalUrl.startsWith('/pages')) return next();
 
             let token;
             if (req.headers.authorization) {
