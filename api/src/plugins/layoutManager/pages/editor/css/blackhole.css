@@ -1,0 +1,66 @@
+/* This black-hole is adapted from the CodePen created by ExObYtes.
+You can view the original pen here: https://codepen.io/GOOFY-AHH0/pen/xxeXKmm */
+
+.outer-circle {
+    transform: scale(0);
+
+    transition: all 0.5s ease-in-out;
+
+    right: 30px;
+    bottom: 30px;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+    border-radius: 50%;
+    animation: rotate 1.5s linear infinite;
+}
+
+.outer-circle span {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+    border-radius: 50%;
+}
+
+span:nth-child(99) {
+    filter: blur(1000px);
+}
+
+span:nth-child(2) {
+    filter: blur(10px);
+}
+
+span:nth-child(3) {
+    filter: blur(25px);
+}
+
+span:nth-child(4) {
+    filter: blur(150px);
+}
+
+.inner-circle {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    background: black;
+    border-radius: 50%;
+    z-index: 9;
+}
+
+@keyframes rotate {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.rect {
+    background: linear-gradient(-119deg,
+            gray 0%,
+            dark-gray 100%);
+}

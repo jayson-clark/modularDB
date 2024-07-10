@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+
+    <link rel="stylesheet" href="http://localhost:3000/widgets/layoutManager/editBtn/style.css">
+</head>
+
+<body>
+    <button onclick="openPage('layoutManager', 'editor')">Edit</button>
+    <script>
+        // Get the token from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+    </script>
+    <script src="http://localhost:3000/widgets/layoutManager/editBtn/main.js"></script>
+</body>
+
+</html>

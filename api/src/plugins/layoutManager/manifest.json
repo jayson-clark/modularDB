@@ -1,4 +1,6 @@
 {
     "name": "LayoutPlugin",
-    "main": "plugin.js"
+    "main": "plugin.js",
+    "page_directory": "pages",
+    "widget_directory": "widgets"
 }

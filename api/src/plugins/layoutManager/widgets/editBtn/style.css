@@ -1,0 +1,21 @@
+html,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2C2E3A;
+    color: #B3B4BD;
+    overflow: hidden;
+    border-radius: 10px;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+button {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    height: 100vh;
+    font-size: 20pt;
+}
